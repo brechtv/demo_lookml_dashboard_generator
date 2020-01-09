@@ -20,6 +20,11 @@ html {
   scroll-behavior: smooth;
 }
 
+.btn {
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 100px;
+}
 
 body {
 background-color: #efefef;
@@ -28,15 +33,19 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 
 h1, h2, h3, h4, h5 {
+	color: #4cad54;
 	 padding: 5px;
     margin-top: 10px;
     font-weight: bold;
 }
 
+.how-to-instructions {
+	background-color: #efefef;
+}
+
 .app-title {
-	color: #4cad54;
 	border-bottom: solid 1px #4cad54;
-	padding: 5px 15px;
+	padding: 5px 15px 5px 0;
 }
 
 .btn-primary {
@@ -47,7 +56,7 @@ h1, h2, h3, h4, h5 {
 .btn-outline-primary {
 	background-color: white;
 	border-color: #4cad54;
-	color: #4cad54;
+	color: #686868;
 }
 
 .btn-outline-primary:active, .btn-outline-primary:hover, .btn-outline-primary:focus {
