@@ -1,9 +1,9 @@
 function generateDashboard() {
 
 	const company_title = $("#settings-company-name").val() || "Looker";
-	const company_subtitle = $("#settings-company-subtitle").val() || "A Company";
+	const dashboard_name = $("#settings-dashboard-name").val() || "Business Pulse";
 	const company_image = $("#settings-company-img").val() || "https://looker.com/assets/img/images/logos/looker_black.svg";
-	
+
 	const color_palette = $("#settings-color-palette").val() || "#2196F3, #F44336, #FFC107, #4CAF50, #9C27B0, #E91E63";
 	const color_palette_arr = color_palette.split(",").map(item => item.trim());
 	const color_1 = color_palette_arr[0];
@@ -30,7 +30,7 @@ function generateDashboard() {
 
     const rendered = Mustache.render(template, {
         company_title: company_title,
-		company_subtitle: company_subtitle,
+		dashboard_name: dashboard_name,
 		company_image: company_image,
 		color_primary: color_primary,
 		color_secondary: color_secondary,
@@ -46,7 +46,7 @@ function generateDashboard() {
 }
 
 const dashboard_template = `- dashboard: business_pulse_dashboard
-  title: {{ company_title }} - Business Pulse
+  title: {{ company_title }} - {{ dashboard_name }}
   layout: newspaper
   description: ''
   embed_style:
@@ -794,8 +794,7 @@ const dashboard_template = `- dashboard: business_pulse_dashboard
   - name: {{ company_title }}
     type: text
     title_text: <font color="{{ color_primary }}" size="7"><strong>{{ company_title }}</strong></font>
-    subtitle_text: <font color="{{ color_primary }}" size="5" weight="bold">Business
-      <font color= "{{ color_secondary }}" size="5"> Pulse Dashboard </font>
+    subtitle_text: <font color= "{{ color_secondary }}" size="5">{{ dashboard_title }}</font>
     body_text: ''
     row: 0
     col: 0
