@@ -1,0 +1,77 @@
+.jumbotron {
+	margin-top: 15px;
+	background-color: white;
+}
+
+#generated-dashboard-lookml-container {
+	display: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+background-color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%23e5e5e5' fill-opacity='0.4' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, h5 {
+	 padding: 5px;
+    margin-top: 10px;
+
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.btn-primary {
+	background-color: #60BD68;
+	border-color: #60BD68;
+}
+
+.btn-outline-primary {
+	background-color: white;
+	border-color: #4cad54;
+	color: #4cad54;
+}
+
+.btn-outline-primary:active, .btn-outline-primary:hover, .btn-outline-primary:focus {
+	background-color: #60BD68 !important;
+	border-color: #60BD68 !important;
+}
+
+.btn-primary:active, .btn-primary:hover, .btn-primary:focus {
+	background-color: #4cad54 !important;
+	border-color: #4cad54 !important;
+}
+
+.btn:disabled {
+	background-color: #dfdfdf;
+	border-color: #dfdfdf;
+	color: #afafaf; 
+}
+
+.button-ico {
+	background-color: #fefefe;
+	border-color: #fefefe;
+	color: #60BD68;
+}
+
+textarea, #editor {
+	width: 100%;
+	height: 360px;
+	font-family: "Lucida Console", Monaco, monospace !important;
+	font-size: 14px;
+	padding: 10px 10px 10px 10px;
+	cursor: pointer;
+}
+
+.settings-div {
+	background-color: #efefef;
+	border-radius: 5px;
+	vertical-align: middle;
+}
+
+.settings-item {
+	margin: 10px;
+	min-height: 32px;
+}
