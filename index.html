@@ -53,9 +53,47 @@
 					</div>
 				</div>
 				<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="settings-color-palette">Color Palette for Charts (<=5)</label>
-						<input type="text" class="form-control" id="settings-color-palette" placeholder="#2196F3, #F44336, #FFC107, #4CAF50, #9C27B0">
+					<div class="form-group col-md-12">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enter or pick color palette</button>
+								<div class="dropdown-menu">
+									<button class="dropdown-item color-palette-item" id="material">Material
+									<div class="color-preview-div">
+										<div class="color-preview" style="background-color: #2196F3;"></div>
+										<div class="color-preview" style="background-color: #F44336;"></div>
+										<div class="color-preview" style="background-color: #FFC107;"></div>
+										<div class="color-preview" style="background-color: #4CAF50;"></div>
+										<div class="color-preview" style="background-color: #9C27B0;"></div>
+									</div></button>
+									<button class="dropdown-item color-palette-item" id="material-light">Material Light
+									<div class="color-preview-div">
+										<div class="color-preview" style="background-color: #42A5F5;"></div>
+										<div class="color-preview" style="background-color: #EF5350;"></div>
+										<div class="color-preview" style="background-color: #FFCA28;"></div>
+										<div class="color-preview" style="background-color: #66BB6A;"></div>
+										<div class="color-preview" style="background-color: #AB47BC;"></div>
+									</div></button>
+									<button class="dropdown-item color-palette-item" id="smtn">Show me the numbers
+									<div class="color-preview-div">
+										<div class="color-preview" style="background-color: #5DA5DA;"></div>
+										<div class="color-preview" style="background-color: #F15854;"></div>
+										<div class="color-preview" style="background-color: #DECF3F;"></div>
+										<div class="color-preview" style="background-color: #60BD68;"></div>
+										<div class="color-preview" style="background-color: #B276B2;"></div>
+									</div></button>
+									<button class="dropdown-item color-palette-item" id="google-charts">Google Legacy Charts
+									<div class="color-preview-div">
+										<div class="color-preview" style="background-color: #3366CC;"></div>
+										<div class="color-preview" style="background-color: #DC3912;"></div>
+										<div class="color-preview" style="background-color: #FF9900;"></div>
+										<div class="color-preview" style="background-color: #109618;"></div>
+										<div class="color-preview" style="background-color: #990099;"></div>
+									</div></button>
+								</div>
+							</div>
+							<input type="text" class="form-control" id="settings-color-palette" placeholder="#2196F3, #F44336, #FFC107, #4CAF50, #9C27B0">
+						</div>
 					</div>
 				</div>
 				<div class="form-row">
@@ -66,7 +104,7 @@
 				</div>
 			</div>
 			<div>
-				<div id="generated-dashboard-lookml-container">
+				<div class="pt-4" id="generated-dashboard-lookml-container">
 					<div class="form-row">
 						<div class="form-group col-md-12">
 							<button class="btn btn-outline-primary" id="copy-lookml" data-clipboard-target="#generated-dashboard-lookml">Copy Dashboard LookML (YAML)
@@ -75,7 +113,7 @@
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-12">
-							<textarea class="form-control" id="generated-dashboard-lookml" rows='20'>
+							<textarea class="form-control" id="generated-dashboard-lookml" rows='50'>
 							</textarea>
 						</div>
 					</div>

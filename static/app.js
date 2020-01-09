@@ -1,3 +1,28 @@
+(function() {
+    console.log("meow")
+    $(".color-palette-item").click(function() {
+        const palette_input = $("#settings-color-palette");
+        switch($(this).attr('id') ) {
+          case 'material':
+            palette_input.val(`#2196F3, #F44336, #FFC107, #4CAF50, #9C27B0`)
+            break;
+          case 'material-light':
+            palette_input.val(`#42A5F5, #EF5350, #FFCA28, #66BB6A, #AB47BC`)
+            break;
+          case 'smtn':
+            palette_input.val(`#5DA5DA, #F15854, #DECF3F, #60BD68, #B276B2`)
+            break;
+          case 'google-charts':
+            palette_input.val(`#3366CC, #DC3912, #FF9900, #109618, #990099`)
+            break;
+          default:
+            palette_input.val(`#42A5F5, #EF5350, #FFCA28, #66BB6A, #AB47BC`)
+        }
+    })
+})()
+
+
+
 function generateDashboard() {
 
 	const company_title = $("#settings-company-name").val() || "Looker";
@@ -44,6 +69,7 @@ function generateDashboard() {
 
     $('#generated-dashboard-lookml').html(rendered);
     $('#generated-dashboard-lookml-container').show();
+    $('#generated-dashboard-lookml-container').get(0).scrollIntoView();
 }
 
 const dashboard_template = `- dashboard: business_pulse_dashboard
