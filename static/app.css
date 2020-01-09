@@ -16,6 +16,9 @@
 	float: left; 
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 body {
@@ -31,10 +34,9 @@ h1, h2, h3, h4, h5 {
 }
 
 .app-title {
-	color: white;
-	background-color: #4cad54;
+	color: #4cad54;
+	border-bottom: solid 1px #4cad54;
 	padding: 5px 15px;
-	border-radius: 5px;
 }
 
 .btn-primary {
