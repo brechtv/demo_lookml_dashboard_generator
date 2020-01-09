@@ -16,6 +16,15 @@ function generateDashboard() {
 	const color_primary = $("#settings-color-primary").val().trim() || "#5A2FC2";
 	const color_secondary = $("#settings-color-secondary").val().trim() || "#282828";
 
+    console.log(
+        company_title,
+        dashboard_name,
+        company_image,
+        color_palette_arr,
+        color_primary,
+        color_secondary
+        )
+
     const template = $('#template').html();
 
     Mustache.parse(template);
@@ -786,7 +795,7 @@ const dashboard_template = `- dashboard: business_pulse_dashboard
   - name: {{ company_title }}
     type: text
     title_text: <font color="{{ color_primary }}" size="7"><strong>{{ company_title }}</strong></font>
-    subtitle_text: <font color= "{{ color_secondary }}" size="5">{{ dashboard_title }}</font>
+    subtitle_text: <font color= "{{ color_secondary }}" size="5">{{ dashboard_name }}</font>
     body_text: ''
     row: 0
     col: 0
