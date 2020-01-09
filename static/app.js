@@ -16,14 +16,6 @@ function generateDashboard() {
 	const color_primary = $("#settings-color-primary").val().trim() || "#5A2FC2";
 	const color_secondary = $("#settings-color-secondary").val().trim() || "#282828";
 
-	console.log(company_title,
-				company_subtitle,
-				company_image,
-				color_primary,
-				color_secondary,
-				color_palette_arr)
-
-
     const template = $('#template').html();
 
     Mustache.parse(template);
