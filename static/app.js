@@ -10,8 +10,6 @@
     }
 
 
-
-
     $("#show-instructions").click(function() {
         if ($("#instructions").is(':visible')) {
             $("#instructions").hide();
@@ -23,11 +21,14 @@
 
     })
 
+    const firstPrimary = $("#settings-color-primary").val() || "#dedede";
     $("#settings-color-primary").css({
-        "border-bottom": "solid 5px #2196F3"
+        "border-bottom": `solid 5px ${firstPrimary}`
     });
+
+    const firstSecondary = $("#settings-color-secondary").val() || "#dedede";
     $("#settings-color-secondary").css({
-        "border-bottom": "solid 5px #282828"
+        "border-bottom": `solid 5px ${firstSecondary}`
     });
     $("#wf-title").css("color", "#2196F3");
     $("#wf-dash-title").css("color", "#282828");
