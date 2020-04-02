@@ -765,7 +765,7 @@ const templates = {
     stacking: ''
     limit_displayed_rows: false
     legend_position: center
-    colors: ["{{ color_1 }}", "{{ color_2 }}", "{{ color_3 }}", "{{ color_4 }}", "{{ color_5 }}"]
+    colors: ["{{ color_2 }}", "{{ color_3 }}", "{{ color_1 }}", "{{ color_4 }}", "{{ color_5 }}"]
     series_types:
       events.sessions_count: line
       events.unique_visitors: line
