@@ -4,17 +4,18 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Bootstrap CSS -->
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700;900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="static/app.css">
 		<title>1, 2, 3 Dashboard</title>
 	</head>
 	<body>
 		<nav class="navbar bg-dark shadow-sm">
-			<a class="navbar-brand" style="color: white;">1, 2, 3 Dashboard</a>
+			<a class="navbar-brand" style="color: white;">1 2 3 Dashboard</a>
 			<button id="show-instructions" type="button" class="btn btn-default btn-circle btn-white">?</button>
 		</nav>
 		<div id="instructions" class="how-to-instructions">
-			<h3>How to</h3>
+			<h3 class="mt-1">How to</h3>
 			<ul>
 				<li>Add in the name, color palette and use the wireframe to include/exclude tiles and generate the dashboard YAML.</li>
 				<li>Copy the output and create a new dashboard in a project that's built on thelook. Make sure you have an <code>include: "*.dashboard"</code> on the model file.</li>
@@ -23,22 +24,6 @@
 		</div>
 		<main class="container">
 			<div class="jumbotron shadow-sm">
-				<div>
-					<ul class="step d-flex flex-nowrap">
-						<li class="step-item">
-							<span class="">Pick a Color Scheme</span>
-						</li>
-						<li class="step-item">
-							<span class="">Customize your Dashboard</span>
-						</li>
-						<li class="step-item">
-							<span class="">Generate YAML</span>
-						</li>
-						<li class="step-item">
-							<span class="">Paste & Convert in Looker</span>
-						</li>
-					</ul>
-				</div>
 				<h2>Pick a Color Scheme</h2>
 				<div>
 				</div>
@@ -46,7 +31,7 @@
 					<div class="form-row">
 						<div class="form-group col-md-4">
 							<label for="settings-company-name">Company Name</label>
-							<input type="text" class="form-control" id="settings-company-name" placeholder="Looker">
+							<input type="text" class="form-control" id="settings-company-name" placeholder="My Cool Company">
 						</div>
 						<div class="form-group col-md-4">
 							<label for="settings-company-subtitle">Dashboard Name</label>
@@ -60,16 +45,17 @@
 					<div class="form-row">
 						<div class="form-group col-md-4">
 							<label for="settings-color-primary">Primary Color</label>
-							<input type="text" class="form-control" id="settings-color-primary">
+							<input placeholder="#EFEFEF" type="text" class="form-control" id="settings-color-primary">
 						</div>
 						<div class="form-group col-md-4">
 							<label for="settings-color-secondary">Secondary Color</label>
-							<input type="text" class="form-control" id="settings-color-secondary">
+							<input placeholder="#EFEFEF" type="text" class="form-control" id="settings-color-secondary">
 						</div>
 						<div class="form-group col-md-4" style="display: none"></div>
 					</div>
 					<div class="form-row">
-						<div class="form-group col-md-12">
+						<div class="form-group col-md-8">
+							<label for="settings-color-palette">Charts Color Palette</label>
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enter or pick color palette</button>

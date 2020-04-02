@@ -89,7 +89,8 @@ label {
 
 .wf-viz-included {
 	background-image: url(img/delete.png);
-	background-color: #60BD68;
+	background-color: #dedede;
+	border-color: #a2aeb9;
 }
 
 .wf-viz-included .wf-viz-title {
@@ -106,6 +107,7 @@ label {
 
 .wf-viz-omitted {
 	background-image: url(img/add.png);
+	border-color: #dedede;
 }
 
 .jumbotron {
@@ -142,16 +144,17 @@ html {
 
 body {
 	background-color: #efefef;
-	font-family: 'Open Sans', sans-serif;
+	/*font-family: 'Open Sans', sans-serif;*/
 	background-image: url("data:image/svg+xml,%3Csvg xmlns=!string!viewBox=!string!width=!string!height=!string!%3E%3Cpath fill=!string!fill-opacity=!string!d=!string!%3E%3C/path%3E%3C/svg%3E");
 }
 
 h1, h2, h3, h4, h5 {
-	color: #4cad54;
-	padding: 5px;
+	color: #282828;
 	margin-bottom: 5px;
 	margin-top: 60px;
 	font-weight: bold;
+	/*font-family: "Open Sans","Noto Sans JP","Noto Sans","Noto Sans CJK KR",Helvetica,Arial,sans-serifbody;*/
+
 }
 
 .navbar {
@@ -183,7 +186,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .app-title {
-	border-bottom: solid 1px #4cad54;
+	border-bottom: solid 1px #ced4da;
 	padding: 5px 15px 5px 0;
 }
 
@@ -194,7 +197,7 @@ h1, h2, h3, h4, h5 {
 
 .btn-outline-primary {
 	background-color: white;
-	border-color: #4cad54;
+	border-color: #ced4da;
 	color: #686868;
 }
 
@@ -350,8 +353,20 @@ textarea {
 }
 
 .settings-form {
-	background-color: #f2f2f2;
-	padding: 10px;
+	background-color: #fff;
+	padding: 20px;
 	margin-bottom: 15px;
 	border-radius: 3px;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: #eee !important;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #eee !important;
+}
+
+::placeholder {
+  color: #eee !important;
 }

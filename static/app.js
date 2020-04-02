@@ -21,19 +21,20 @@
 
     })
 
-    const firstPrimary = $("#settings-color-primary").val() || "#343434";
+    const firstPrimary = $("#settings-color-primary").val() || "#bebebe";
+    
     $("#settings-color-primary").css({
         "border-bottom": `solid 5px ${firstPrimary}`
     });
 
-    const firstSecondary = $("#settings-color-secondary").val() || "#343434";
+    const firstSecondary = $("#settings-color-secondary").val() || "#bebebe";
     $("#settings-color-secondary").css({
         "border-bottom": `solid 5px ${firstSecondary}`
     });
     $("#wf-title").css("color", `${firstPrimary}`);
-    $("#wf-title").text($("#settings-company-name").val());
+    $("#wf-title").text($("#settings-company-name").val() || "Company Name");
     $("#wf-dash-title").css("color", `${firstSecondary}`);
-    $("#wf-dash-title").text($("#settings-dashboard-name").val());
+    $("#wf-dash-title").text($("#settings-dashboard-name").val() || "Dashboard Name");
     setColorsOnWireframe(["#2196F3", "#F44336", "#FFC107", "#4CAF50"]);
 
 
