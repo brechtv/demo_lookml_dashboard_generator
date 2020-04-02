@@ -732,9 +732,9 @@ const templates = {
         label: Custom
         type: discrete
         colors:
-        - "{{ color_1 }}"
         - "{{ color_2 }}"
         - "{{ color_3 }}"
+        - "{{ color_1 }}"
         - "{{ color_4 }}"
         - "{{ color_5 }}"
       options:
