@@ -1,8 +1,4 @@
 (function() {
-
-
-
-
     $("#show-instructions").click(function() {
         if ($("#instructions").is(':visible')) {
             $("#instructions").hide();
@@ -14,9 +10,22 @@
 
     })
 
+
+
+
+    $("#settings-color-primary").css({
+        "border-bottom": "solid 5px #2196F3"
+    });
+    $("#settings-color-secondary").css({
+        "border-bottom": "solid 5px #282828"
+    });
     $("#wf-title").css("color", "#2196F3");
     $("#wf-dash-title").css("color", "#282828");
     setColorsOnWireframe(["#2196F3", "#F44336", "#FFC107", "#4CAF50"]);
+
+
+
+
 
     $(".color-palette-item").click(function() {
         const palette_input = $("#settings-color-palette");
@@ -67,8 +76,41 @@
             $("#wf-dash-title").css("color", $(this).val());
         }
     });
+
+    $('#settings-color-primary').on("input", function() {
+        if ($(this).val() === "") {
+            $("#settings-color-primary").css({
+                "border-bottom": "solid 5px #dedede"
+            });
+        }
+        try {
+            const color = $(this).val().trim();
+            if (isColor(color)) {
+                $("#settings-color-primary").css({
+                    "border-bottom": `solid 5px ${color}`
+                });
+            }
+        } catch (err) {}
+    });
+
+    $('#settings-color-secondary').on("input", function() {
+        if ($(this).val() === "") {
+            $("#settings-color-secondary").css({
+                "border-bottom": "solid 5px #dedede"
+            });
+        }
+        try {
+            const color = $(this).val().trim();
+            if (isColor(color)) {
+                $("#settings-color-secondary").css({
+                    "border-bottom": `solid 5px ${color}`
+                });
+            }
+        } catch (err) {}
+    });
+
     $('#settings-color-palette').on("input", function() {
-        if($(this).val() === "") {
+        if ($(this).val() === "") {
             setColorsOnWireframe(["#2196F3", "#F44336", "#FFC107", "#4CAF50"]);
         }
         try {
