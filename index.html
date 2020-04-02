@@ -9,132 +9,192 @@
 		<title>1, 2, 3 Dashboard</title>
 	</head>
 	<body>
-		<main class="container">
-			<div class="jumbotron shadow-sm">
-				<h1 class="display-8"><span class="app-title">1, 2, 3 Dashboard</span></h1>
-				<p class="lead mt-4">Generates dashboard LookML for a Business Pulse dashboard built on thelook, with a custom header and color palette.</p>
-				<hr>
-				<p>
-					<button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#howToCollapsible" aria-expanded="false" aria-controls="howToCollapsible">
-					How do I use this?
-					</button>
-				</p>
-				<div class="collapse mb-4 shadow-sm" id="howToCollapsible">
-					<h4>How to</h4>
-					<div class="card card-body how-to-instructions">
-						<p>Add in your color palette and generate the dashboard YAML.</p>
-						<p>Copy the output and create a new dashboard in a project that's built on thelook. Make sure you have an <code>include: "*.dashboard"</code> on the model file.</p>
-						<p>Save your dashboard (no need to commit), and hit 'view dashboard' from the LookML file. Now you can view the dashboard and hit 'copy to space' to convert it into a user-defined dashboard!</p>
-					</div>
+		<nav class="navbar bg-dark shadow-sm">
+			<a class="navbar-brand" style="color: white;">1, 2, 3 Dashboard</a>
+			<button type="button" class="btn btn-default btn-circle btn-white" data-toggle="collapse" href="#instructions">?</button>
+	</nav>
+	<main class="container">
+		<div class="jumbotron shadow-sm">
+			<h2>Create your dashboard</h2>
+			<div>
+				<div id="instructions" class="collapse card card-body how-to-instructions">
+					<h3>How to</h3>
+					<ul>
+					<li>Add in the name, color palette and use the wireframe to generate the dashboard YAML.</li>
+					<li>Copy the output and create a new dashboard in a project that's built on thelook. Make sure you have an <code>include: "*.dashboard"</code> on the model file.</li>
+					<li>Save your dashboard (no need to commit), and hit 'view dashboard' from the LookML file. Now you can view the dashboard and hit 'copy to space' to convert it into a user-defined dashboard!</li>
+				</ul>
 				</div>
-				
-				<div class="form-row">
-					<div class="form-group col-md-4">
-						<label for="settings-company-name">Company Name</label>
-						<input type="text" class="form-control" id="settings-company-name" placeholder="Looker">
-					</div>
-					<div class="form-group col-md-4">
-						<label for="settings-company-subtitle">Dashboard Name</label>
-						<input type="text" class="form-control" id="settings-dashboard-name" placeholder="Business Pulse">
-					</div>
-					<div class="form-group col-md-4">
-						<label for="settings-company-subtitle">Company Logo</label>
-						<input type="text" class="form-control" id="settings-company-img" placeholder="does-not-work-yet.png" disabled>
-					</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="settings-company-name">Company Name</label>
+					<input type="text" class="form-control" id="settings-company-name" placeholder="Looker">
 				</div>
-				<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="settings-color-primary">Primary Color</label>
-						<input type="text" class="form-control" id="settings-color-primary" placeholder="#5A2FC2">
-					</div>
-					<div class="form-group col-md-6">
-						<label for="settings-color-secondary">Secondary Color</label>
-						<input type="text" class="form-control" id="settings-color-secondary" placeholder="#282828">
-					</div>
+				<div class="form-group col-md-4">
+					<label for="settings-company-subtitle">Dashboard Name</label>
+					<input type="text" class="form-control" id="settings-dashboard-name" placeholder="Business Pulse">
 				</div>
-				<div class="form-row">
-					<div class="form-group col-md-12">
-						<div class="input-group mb-3">
-							<div class="input-group-prepend">
-								<button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enter or pick color palette</button>
-								<div class="dropdown-menu">
-									<button class="dropdown-item color-palette-item" id="material">Material
-									<div class="color-preview-div">
-										<div class="color-preview" style="background-color: #2196F3;"></div>
-										<div class="color-preview" style="background-color: #F44336;"></div>
-										<div class="color-preview" style="background-color: #FFC107;"></div>
-										<div class="color-preview" style="background-color: #4CAF50;"></div>
-										<div class="color-preview" style="background-color: #9C27B0;"></div>
-									</div></button>
-									<button class="dropdown-item color-palette-item" id="material-light">Material Light
-									<div class="color-preview-div">
-										<div class="color-preview" style="background-color: #42A5F5;"></div>
-										<div class="color-preview" style="background-color: #EF5350;"></div>
-										<div class="color-preview" style="background-color: #FFCA28;"></div>
-										<div class="color-preview" style="background-color: #66BB6A;"></div>
-										<div class="color-preview" style="background-color: #AB47BC;"></div>
-									</div></button>
-									<button class="dropdown-item color-palette-item" id="smtn">Show me the numbers
-									<div class="color-preview-div">
-										<div class="color-preview" style="background-color: #5DA5DA;"></div>
-										<div class="color-preview" style="background-color: #F15854;"></div>
-										<div class="color-preview" style="background-color: #DECF3F;"></div>
-										<div class="color-preview" style="background-color: #60BD68;"></div>
-										<div class="color-preview" style="background-color: #B276B2;"></div>
-									</div></button>
-									<button class="dropdown-item color-palette-item" id="google-charts">Google Legacy Charts
-									<div class="color-preview-div">
-										<div class="color-preview" style="background-color: #3366CC;"></div>
-										<div class="color-preview" style="background-color: #DC3912;"></div>
-										<div class="color-preview" style="background-color: #FF9900;"></div>
-										<div class="color-preview" style="background-color: #109618;"></div>
-										<div class="color-preview" style="background-color: #990099;"></div>
-									</div></button>
-								</div>
+				<div class="form-group col-md-4">
+					<label for="settings-company-subtitle">Company Logo</label>
+					<input type="text" class="form-control" id="settings-company-img" placeholder="does-not-work-yet.png" disabled>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="settings-color-primary">Primary Color</label>
+					<input type="text" class="form-control" id="settings-color-primary" placeholder="#5A2FC2">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="settings-color-secondary">Secondary Color</label>
+					<input type="text" class="form-control" id="settings-color-secondary" placeholder="#282828">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enter or pick color palette</button>
+							<div class="dropdown-menu">
+								<button class="dropdown-item color-palette-item" id="material">Material
+								<div class="color-preview-div">
+									<div class="color-preview" style="background-color: #2196F3;"></div>
+									<div class="color-preview" style="background-color: #F44336;"></div>
+									<div class="color-preview" style="background-color: #FFC107;"></div>
+									<div class="color-preview" style="background-color: #4CAF50;"></div>
+									<div class="color-preview" style="background-color: #9C27B0;"></div>
+								</div></button>
+								<button class="dropdown-item color-palette-item" id="material-light">Material Light
+								<div class="color-preview-div">
+									<div class="color-preview" style="background-color: #42A5F5;"></div>
+									<div class="color-preview" style="background-color: #EF5350;"></div>
+									<div class="color-preview" style="background-color: #FFCA28;"></div>
+									<div class="color-preview" style="background-color: #66BB6A;"></div>
+									<div class="color-preview" style="background-color: #AB47BC;"></div>
+								</div></button>
+								<button class="dropdown-item color-palette-item" id="smtn">Show me the numbers
+								<div class="color-preview-div">
+									<div class="color-preview" style="background-color: #5DA5DA;"></div>
+									<div class="color-preview" style="background-color: #F15854;"></div>
+									<div class="color-preview" style="background-color: #DECF3F;"></div>
+									<div class="color-preview" style="background-color: #60BD68;"></div>
+									<div class="color-preview" style="background-color: #B276B2;"></div>
+								</div></button>
+								<button class="dropdown-item color-palette-item" id="google-charts">Google Legacy Charts
+								<div class="color-preview-div">
+									<div class="color-preview" style="background-color: #3366CC;"></div>
+									<div class="color-preview" style="background-color: #DC3912;"></div>
+									<div class="color-preview" style="background-color: #FF9900;"></div>
+									<div class="color-preview" style="background-color: #109618;"></div>
+									<div class="color-preview" style="background-color: #990099;"></div>
+								</div></button>
 							</div>
-							<input type="text" class="form-control" id="settings-color-palette" placeholder="#2196F3, #F44336, #FFC107, #4CAF50, #9C27B0">
 						</div>
+						<input type="text" class="form-control" id="settings-color-palette" placeholder="#2196F3, #F44336, #FFC107, #4CAF50, #9C27B0">
 					</div>
 				</div>
+			</div>
+			<div class="wf">
+				<label for="settings-company-subtitle">Wireframe <span class='badge badge-info'>New!</span></label>
+				<p><small>Click to add or remove tiles from the dashboard.</small></p>
+				<div class="row">
+					<div class="col-sm wf-viz-header">
+						<div><span id='wf-title'>Looker</span></div>
+						<div><span id='wf-dash-title'>Business Pulse</span></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm wf-viz wf-viz-included" id="wf-1-1">
+						<div class="wf-viz-title"><img src="static/img/single.png"></div>
+					</div>
+					<div class="col-sm wf-viz wf-viz-included" id="wf-1-2">
+						<div class="wf-viz-title"><img src="static/img/single.png"></div>
+					</div>
+					<div class="col-sm wf-viz wf-viz-included" id="wf-1-3">
+						<div class="wf-viz-title"><img src="static/img/single.png"></div>
+					</div>
+					<div class="col-sm wf-viz wf-viz-included" id="wf-1-4">
+						<div class="wf-viz-title"><img src="static/img/single.png"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm wf-viz wf-viz-included" id="wf-2-1">
+						<div class="wf-viz-title"><img src="static/img/bar.png"></div>
+					</div>
+					<div class="col-sm wf-viz wf-viz-included" id="wf-2-2">
+						<div class="wf-viz-title"><img src="static/img/map.png"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm wf-viz wf-viz-included" id="wf-3-1">
+						<div class="wf-viz-title"><img src="static/img/area.png"></div>
+					</div>
+					<div class="col-sm wf-viz wf-viz-included" id="wf-3-2">
+						<div class="wf-viz-title"><img src="static/img/line.png"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm wf-viz wf-viz-included" id="wf-4-1">
+						<div class="wf-viz-title"><img src="static/img/line.png"></div>
+					</div>
+					<div class="col-sm wf-viz wf-viz-included" id="wf-4-2">
+						<div class="wf-viz-title"><img src="static/img/bar.png"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm wf-viz wf-viz-included" id="wf-5-1">
+						<div class="wf-viz-title"><img src="static/img/multi.png"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm wf-viz wf-viz-included" id="wf-6-1">
+						<div class="wf-viz-title"><img src="static/img/pie3.png"></div>
+					</div>
+					<div class="col-sm wf-viz wf-viz-included" id="wf-6-2">
+						<div class="wf-viz-title"><img src="static/img/grid.png"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm wf-viz wf-viz-included" id="wf-7-1">
+						<div class="wf-viz-title"><img src="static/img/area.png"></div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<button class="btn btn-primary" onclick="generateDashboard()">Generate Dashboard LookML (YAML)
+					</button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="pt-4" id="generated-dashboard-lookml-container">
 				<div class="form-row">
 					<div class="form-group col-md-12">
-						<button class="btn btn-primary" onclick="generateDashboard()">Generate Dashboard LookML (YAML)
+						<button class="btn btn-outline-primary" id="copy-lookml" data-clipboard-target="#generated-dashboard-lookml">Copy Dashboard LookML (YAML)
 						</button>
 					</div>
 				</div>
-			</div>
-			<div>
-				<div class="pt-4" id="generated-dashboard-lookml-container">
-					<div class="form-row">
-						<div class="form-group col-md-12">
-							<button class="btn btn-outline-primary" id="copy-lookml" data-clipboard-target="#generated-dashboard-lookml">Copy Dashboard LookML (YAML)
-							</button>
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-12">
-							<textarea class="form-control" id="generated-dashboard-lookml" rows='50'>
-							</textarea>
-						</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+						<textarea class="form-control" id="generated-dashboard-lookml" rows='50'>
+						</textarea>
 					</div>
 				</div>
 			</div>
-		</main>
-		
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"></script>
-		<script type="text/javascript" src="static/app.js"></script>
-		<script type="text/javascript">
-		$("body").append(
-		`<script id="template" type="x-tmpl-mustache">${dashboard_template}`
-		)
-		
-		</script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
-		<script type="text/javascript">
-		new Clipboard('#copy-lookml');
-		</script>
-	</body>
+		</div>
+	</main>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"></script>
+	<script type="text/javascript" src="static/templates.js"></script>
+	<script type="text/javascript" src="static/app.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+	<script type="text/javascript">
+	new Clipboard('#copy-lookml');
+	</script>
+</body>
 </html>
