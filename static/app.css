@@ -16,7 +16,7 @@ label {
 .wf-viz-header {
 	min-height: 40px;
 	text-align: center;
-	background-color: #f0f0f0 !important;
+	background-color: #f5f5f5 !important;
 	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
 	margin: 10px;
 	padding: 5px 0;
@@ -76,21 +76,24 @@ label {
 	border: solid 1px #f5f5f5;
 }
 
-.wf-viz-omitted .wf-viz-title img {
-	filter: brightness(300%);
+.wf-viz-included .wf-viz-title img {
+filter: brightness(10000%);
 }
 
 .wf-viz-omitted {
 	background-image: url(img/add.png);
 }
-
 .jumbotron {
 	margin-top: 15px;
+	padding-top: 15px;
 	background-color: white;
 }
 
 #generated-dashboard-lookml-container {
 	display: none;
+	background-color: #f0f0f0;
+	padding: 10px;
+	border-radius: 3px;
 }
 
 .color-preview-div {
@@ -110,7 +113,6 @@ html {
 .btn {
 	padding-left: 20px;
 	padding-right: 20px;
-	border-radius: 100px;
 }
 
 body {
@@ -122,16 +124,18 @@ body {
 h1, h2, h3, h4, h5 {
 	color: #4cad54;
 	padding: 5px;
-	margin-bottom: 25px;
+	margin-bottom: 5px;
+	margin-top: 40px;
 	font-weight: bold;
 }
 
 .navbar {
+	max-height: 50px;
 	position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
-    background-color: #282828;
+    background-color: #252d33 !important;
 }
 
 .navbar-brand {
@@ -140,7 +144,11 @@ h1, h2, h3, h4, h5 {
 }
 
 .how-to-instructions {
-	background-color: #efefef;
+	display: none;
+	color: white;
+	background-color: rgba(37,45,51,0.92);
+	margin: 20px;
+	padding: 15px;
 }
 
 .app-title {
@@ -214,7 +222,6 @@ textarea {
 	min-height: 32px;
 }
 
-
 .btn-circle {
   width: 30px;
   height: 30px;
@@ -224,6 +231,11 @@ textarea {
   line-height: 1.428571429;
   border-radius: 15px;
 }
+
+.btn-circle:hover, .btn-circle:active {
+	color: white;
+}
+
 .btn-circle.btn-lg {
   width: 50px;
   height: 50px;
@@ -243,4 +255,70 @@ textarea {
 .btn-white {
 	color: white;
 	border: solid 1px white;
+}
+
+.step {
+  list-style: none;
+  width: 100%;
+}
+
+.step .step-item {
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  margin-top: 0;
+  min-height: 1rem;
+  position: relative; 
+  text-align: center;
+}
+
+.step .step-item:not(:first-child)::before {
+  background: #0069d9;
+  content: "";
+  height: 2px;
+  left: -50%;
+  position: absolute;
+  top: 9px;
+  width: 100%;
+}
+
+.step .step-item span {
+  color: #acb3c2;
+  display: inline-block;
+  padding: 20px 10px 0;
+  text-decoration: none;
+}
+
+.step .step-item span::before {
+  background: #0069d9;
+  border: .1rem solid #fff;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: .9rem;
+  left: 50%;
+  position: absolute;
+  top: .2rem;
+  transform: translateX(-50%);
+  width: .9rem;
+  z-index: 1;
+}
+
+.step .step-item.active span::before {
+  background: #fff;
+  border: .1rem solid #0069d9;
+}
+
+.step .step-item.active ~ .step-item::before {
+  background: #e7e9ed;
+}
+
+.step .step-item.active ~ .step-item a::before {
+  background: #e7e9ed;
+}
+
+.settings-form {
+	background-color: #f2f2f2;
+	padding: 10px;
+	margin-bottom: 15px;
+	border-radius: 3px;
 }

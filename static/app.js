@@ -1,4 +1,17 @@
 (function() {
+    $("#show-instructions").click(function(){
+        if($("#instructions").is(':visible')) {
+            $("#instructions").hide();
+        } else {
+            $("#instructions").show();
+        }
+        
+    })
+
+    $("#wf-title").css("color", "#2196F3");
+    $("#wf-dash-title").css("color", "#282828");
+    setColorsOnWireframe(["#2196F3", "#F44336", "#FFC107", "#4CAF50"]);
+
     $(".color-palette-item").click(function() {
         const palette_input = $("#settings-color-palette");
         switch ($(this).attr('id')) {
@@ -17,6 +30,9 @@
             default:
                 palette_input.val(`#42A5F5, #EF5350, #FFCA28, #66BB6A, #AB47BC`)
         }
+
+        const colors = palette_input.val().split(", ");
+        setColorsOnWireframe(colors);
     })
 
     $(".wf-viz").click(function() {
@@ -27,11 +43,24 @@
         }
     });
 
-    $('#settings-company-name').on("input", function(){
-        // Print entered value in a div box
+    $('#settings-company-name').on("input", function() {
         $("#wf-title").text($(this).val());
     });
 
+    $('#settings-dashboard-name').on("input", function() {
+        $("#wf-dash-title").text($(this).val());
+    });
+
+    $('#settings-color-primary').on("input", function() {
+        if (isColor($(this).val())) {
+            $("#wf-title").css("color", $(this).val());
+        }
+    });
+    $('#settings-color-secondary').on("input", function() {
+        if (isColor($(this).val())) {
+            $("#wf-dash-title").css("color", $(this).val());
+        }
+    });
 })()
 
 
@@ -66,7 +95,7 @@ function generateDashboard() {
     let dashboard_template = templates["header"];
 
     $(".wf-viz").each(function() {
-        if($(this).hasClass("wf-viz-included")) {
+        if ($(this).hasClass("wf-viz-included")) {
             const template_id = $(this)[0].id;
             const template_body = templates[template_id];
             dashboard_template += template_body;
@@ -94,4 +123,35 @@ function generateDashboard() {
     $('#generated-dashboard-lookml').html(rendered);
     $('#generated-dashboard-lookml-container').show();
     $('#generated-dashboard-lookml-container').get(0).scrollIntoView();
+}
+
+function isColor(stringToTest) {
+    if (stringToTest === "") {
+        return false;
+    }
+    if (stringToTest === "inherit") {
+        return false;
+    }
+    if (stringToTest === "transparent") {
+        return false;
+    }
+
+    var image = document.createElement("img");
+    image.style.color = "rgb(0, 0, 0)";
+    image.style.color = stringToTest;
+    if (image.style.color !== "rgb(0, 0, 0)") {
+        return true;
+    }
+    image.style.color = "rgb(255, 255, 255)";
+    image.style.color = stringToTest;
+    return image.style.color !== "rgb(255, 255, 255)";
+}
+
+function setColorsOnWireframe(colors) {
+    $(".wf-viz-title").css({
+        background: `-webkit-linear-gradient(70deg, ${colors[0]}  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(30deg, ${colors[1]} 60%, ${colors[2]} 60%)`,
+        background: `-o-linear-gradient(70deg, ${colors[0]}  30%, rgba(0,0,0,0) 30%), -o-linear-gradient(30deg, ${colors[1]} 60%, ${colors[2]} 60%)`,
+        background: `-moz-linear-gradient(70deg, ${colors[0]}  30%, rgba(0,0,0,0) 30%), -moz-linear-gradient(30deg, ${colors[1]} 60%, ${colors[2]} 60%)`,
+        background: `linear-gradient(70deg, ${colors[0]}  30%, rgba(0,0,0,0) 30%), linear-gradient(30deg, ${colors[1]} 60%, ${colors[2]} 60%)`
+    })
 }

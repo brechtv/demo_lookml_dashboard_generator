@@ -1,6 +1,5 @@
 const templates = {
-    "header": `
-- dashboard: business_pulse_dashboard
+    "header": `- dashboard: business_pulse_dashboard
   title: {{ company_title }} - {{ dashboard_name }}
   layout: newspaper
   description: ''
