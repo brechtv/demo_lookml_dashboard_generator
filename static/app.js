@@ -1,19 +1,17 @@
 (function() {
 
 
-    var colorPicker = new iro.ColorPicker('#picker');
 
 
-    
-    $("#show-instructions").click(function(){
-        if($("#instructions").is(':visible')) {
+    $("#show-instructions").click(function() {
+        if ($("#instructions").is(':visible')) {
             $("#instructions").hide();
             $("#show-instructions").text("?");
         } else {
             $("#instructions").show();
             $("#show-instructions").text("x");
         }
-        
+
     })
 
     $("#wf-title").css("color", "#2196F3");
@@ -68,6 +66,17 @@
         if (isColor($(this).val())) {
             $("#wf-dash-title").css("color", $(this).val());
         }
+    });
+    $('#settings-color-palette').on("input", function() {
+        if($(this).val() === "") {
+            setColorsOnWireframe(["#2196F3", "#F44336", "#FFC107", "#4CAF50"]);
+        }
+        try {
+            const colors = $(this).val().split(",").map(item => item.trim());
+            if (colors.every(isColor)) {
+                setColorsOnWireframe(colors);
+            }
+        } catch (err) {}
     });
 })()
 
