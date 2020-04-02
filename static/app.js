@@ -1,4 +1,17 @@
 (function() {
+
+    const lastFormValues = JSON.parse(localStorage.getItem('lastFormValues'));
+    if(lastFormValues) {
+        $("#settings-company-name").val(lastFormValues.company_title);
+        $("#settings-dashboard-name").val(lastFormValues.dashboard_name);
+        $("#settings-color-palette").val(lastFormValues.color_palette);
+        $("#settings-color-primary").val(lastFormValues.color_primary);
+        $("#settings-color-secondary").val(lastFormValues.color_secondary);
+    }
+
+
+
+
     $("#show-instructions").click(function() {
         if ($("#instructions").is(':visible')) {
             $("#instructions").hide();
@@ -9,9 +22,6 @@
         }
 
     })
-
-
-
 
     $("#settings-color-primary").css({
         "border-bottom": "solid 5px #2196F3"
@@ -125,6 +135,16 @@
 
 
 function generateDashboard() {
+    (() => {
+        const formValues = {
+            company_title: $("#settings-company-name").val(),
+            dashboard_name: $("#settings-dashboard-name").val(),
+            color_palette: $("#settings-color-palette").val(),
+            color_primary: $("#settings-color-primary").val(),
+            color_secondary: $("#settings-color-secondary").val()
+        }
+        localStorage.setItem('lastFormValues', JSON.stringify(formValues));
+    })()
 
     const company_title = $("#settings-company-name").val() || "Looker";
     const dashboard_name = $("#settings-dashboard-name").val() || "Business Pulse";
@@ -139,7 +159,7 @@ function generateDashboard() {
     const color_5 = color_palette_arr[4];
 
 
-    const color_primary = $("#settings-color-primary").val().trim() || "#5A2FC2";
+    const color_primary = $("#settings-color-primary").val().trim() || "#2196F3";
     const color_secondary = $("#settings-color-secondary").val().trim() || "#282828";
 
     console.log(
@@ -163,6 +183,7 @@ function generateDashboard() {
 
 
     const template = dashboard_template;
+    console.log(template);
 
     Mustache.parse(template);
 

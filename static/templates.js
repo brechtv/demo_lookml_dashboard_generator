@@ -260,7 +260,7 @@ const templates = {
     point_style: none
     series_colors:
       inventory_items.number_on_hand: "{{ color_primary }}"
-      inventory_items.sold_count: "#d45087"
+      inventory_items.sold_count: "{{ color_secondary }}"
     show_value_labels: false
     label_density: 25
     x_axis_scale: auto
