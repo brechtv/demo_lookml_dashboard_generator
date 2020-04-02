@@ -1,9 +1,17 @@
 (function() {
+
+
+    var colorPicker = new iro.ColorPicker('#picker');
+
+
+    
     $("#show-instructions").click(function(){
         if($("#instructions").is(':visible')) {
             $("#instructions").hide();
+            $("#show-instructions").text("?");
         } else {
             $("#instructions").show();
+            $("#show-instructions").text("x");
         }
         
     })

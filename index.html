@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="static/app.css">
@@ -12,15 +13,15 @@
 		<nav class="navbar bg-dark shadow-sm">
 			<a class="navbar-brand" style="color: white;">1, 2, 3 Dashboard</a>
 			<button id="show-instructions" type="button" class="btn btn-default btn-circle btn-white">?</button>
-			<div id="instructions" class="how-to-instructions">
-						<h3>How to</h3>
-						<ul>
-							<li>Add in the name, color palette and use the wireframe to include/exclude tiles and generate the dashboard YAML.</li>
-							<li>Copy the output and create a new dashboard in a project that's built on thelook. Make sure you have an <code>include: "*.dashboard"</code> on the model file.</li>
-							<li>Save your dashboard (no need to commit), and hit 'view dashboard' from the LookML file. Now you can view the dashboard and hit 'copy to space' to convert it into a user-defined dashboard!</li>
-						</ul>
-					</div>
 		</nav>
+		<div id="instructions" class="how-to-instructions">
+			<h3>How to</h3>
+			<ul>
+				<li>Add in the name, color palette and use the wireframe to include/exclude tiles and generate the dashboard YAML.</li>
+				<li>Copy the output and create a new dashboard in a project that's built on thelook. Make sure you have an <code>include: "*.dashboard"</code> on the model file.</li>
+				<li>Save your dashboard (no need to commit), and hit 'view dashboard' from the LookML file. Now you can view the dashboard and hit 'copy to space' to convert it into a user-defined dashboard!</li>
+			</ul>
+		</div>
 		<main class="container">
 			<div class="jumbotron shadow-sm">
 				<div>
@@ -114,7 +115,7 @@
 				</div>
 				<div class="wf">
 					<h2>Wireframe your Dashboard</h2>
-					<p><small><span class='badge badge-info'>New!</span> Click to add or remove tiles from the dashboard.</small></p>
+					<p><small>Click to add or remove tiles from the dashboard.</small></p>
 					<div class="row">
 						<div class="col-sm wf-viz-header">
 							<div><span id='wf-title'>Looker</span></div>
