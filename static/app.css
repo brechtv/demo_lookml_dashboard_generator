@@ -1,3 +1,8 @@
+:root {
+	--included-color: #dedede;
+	--omitted-color: #f5f5f5;
+}
+
 label {
 	font-weight: bold;
 }
@@ -9,7 +14,6 @@ label {
 #wf-title {
 	font-weight: bold;
 	font-size: 24px;
-	color: #60BD68;
 }
 
 .wf-viz-header {
@@ -35,9 +39,6 @@ label {
 	cursor: pointer;
 	border: solid 1px rgb(222, 225, 229);
 	border-radius: 3px;
-	-webkit-transition: background-color 200ms linear;
-	-ms-transition: background-color 200ms linear;
-	transition: background-color 200ms linear;
 	padding-left: 0;
 }
 
@@ -73,8 +74,8 @@ label {
 }
 
 .wf-viz-included > .wf-viz-desc > div {
-		color: #fff;
-	}
+	color: #fff;
+}
 
 .wf-viz-title img {
 	height: 32px;
@@ -89,16 +90,13 @@ label {
 
 .wf-viz-included {
 	background-image: url(img/delete.png);
-	background-color: #dedede;
+	background-color: var(--included-color);
 	border-color: #a2aeb9;
-}
-
-.wf-viz-included .wf-viz-title {
-	border: solid 1px #60BD68;
 }
 
 .wf-viz-omitted .wf-viz-title {
 	border: solid 1px #f5f5f5;
+	filter: brightness(1000000%);
 }
 
 .wf-viz-included .wf-viz-title img {
@@ -123,13 +121,18 @@ label {
 	border-radius: 3px;
 }
 
-.color-preview-div {
+.color-preview-div, .color-palette-preview-div {
 	width: 100%;
 }
 
 .color-preview {
 	width: 20%;
-	min-height: 6px;
+	min-height: 5px;
+	float: left;
+}
+
+.color-palette-preview {
+	min-height: 5px;
 	float: left;
 }
 
@@ -143,8 +146,7 @@ html {
 }
 
 body {
-	background-color: #efefef;
-	/*font-family: 'Open Sans', sans-serif;*/
+	background-color: #efefef;	/*font-family: 'Open Sans', sans-serif;*/
 	background-image: url("data:image/svg+xml,%3Csvg xmlns=!string!viewBox=!string!width=!string!height=!string!%3E%3Cpath fill=!string!fill-opacity=!string!d=!string!%3E%3C/path%3E%3C/svg%3E");
 }
 
@@ -152,9 +154,7 @@ h1, h2, h3, h4, h5 {
 	color: #282828;
 	margin-bottom: 5px;
 	margin-top: 60px;
-	font-weight: bold;
-	/*font-family: "Open Sans","Noto Sans JP","Noto Sans","Noto Sans CJK KR",Helvetica,Arial,sans-serifbody;*/
-
+	font-weight: bold;	/*font-family: "Open Sans","Noto Sans JP","Noto Sans","Noto Sans CJK KR",Helvetica,Arial,sans-serifbody;*/
 }
 
 .navbar {
@@ -191,8 +191,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .btn-primary {
-	background-color: #60BD68;
-	border-color: #60BD68;
+	background-color: #686868;
+	border-color: #686868;
 }
 
 .btn-outline-primary {
@@ -202,26 +202,26 @@ h1, h2, h3, h4, h5 {
 }
 
 .btn-outline-primary:active, .btn-outline-primary:hover, .btn-outline-primary:focus {
-	background-color: #60BD68 !important;
-	border-color: #60BD68 !important;
+	background-color: #686868 !important;
+	border-color: #686868 !important;
 	color: white !important;
 }
 
 .dropdown-item:active, .dropdown-item:hover, .dropdown-item:focus {
-	background-color: #60BD68 !important;
-	border-color: #60BD68 !important;
+	background-color: #686868 !important;
+	border-color: #686868 !important;
 	color: white !important;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
 	color: #fff;
-	background-color: #60BD68;
-	border-color: #60BD68;
+	background-color: #686868;
+	border-color: #686868;
 }
 
 .btn-primary:active, .btn-primary:hover, .btn-primary:focus {
-	background-color: #4cad54 !important;
-	border-color: #4cad54 !important;
+	background-color: #686868 !important;
+	border-color: #686868 !important;
 }
 
 .btn:disabled {
@@ -233,7 +233,7 @@ h1, h2, h3, h4, h5 {
 .button-ico {
 	background-color: #fefefe;
 	border-color: #fefefe;
-	color: #60BD68;
+	color: #686868;
 }
 
 textarea {
@@ -359,14 +359,88 @@ textarea {
 	border-radius: 3px;
 }
 
-::-webkit-input-placeholder { /* Edge */
-  color: #eee !important;
+#clear-ls {
+	background-color: transparent;
+	border: none;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #eee !important;
+/**
+ * Tooltip Styles
+ */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+	position: relative;
+	z-index: 2;
+	cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before, [data-tooltip]:after {
+	visibility: hidden;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+	position: absolute;
+	bottom: 150%;
+	left: 50%;
+	margin-bottom: 5px;
+	margin-left: -80px;
+	padding: 7px;
+	width: 160px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #000;
+	background-color: hsla(0, 0%, 20%, 0.9);
+	color: #fff;
+	content: attr(data-tooltip);
+	text-align: center;
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+	position: absolute;
+	bottom: 150%;
+	left: 50%;
+	margin-left: -5px;
+	width: 0;
+	border-top: 5px solid #000;
+	border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent;
+	content: " ";
+	font-size: 0;
+	line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before, [data-tooltip]:hover:after {
+	visibility: visible;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	opacity: 1;
+}
+
+::-webkit-input-placeholder {
+
+	/* Edge */
+	color: #eee !important;
+}
+
+:-ms-input-placeholder {
+
+	/* Internet Explorer 10-11 */
+	color: #eee !important;
 }
 
 ::placeholder {
-  color: #eee !important;
+	color: #eee !important;
 }

@@ -6,6 +6,8 @@
 		<!-- Bootstrap CSS -->
 		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700;900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="static/app.css">
 		<title>1, 2, 3 Dashboard</title>
 	</head>
@@ -24,7 +26,7 @@
 		</div>
 		<main class="container">
 			<div class="jumbotron shadow-sm">
-				<h2>Pick a Color Scheme</h2>
+				<h2 id="pick-color-scheme">Pick a Color Scheme </h2>
 				<div>
 				</div>
 				<div class="settings-form">
@@ -95,6 +97,8 @@
 									</div>
 								</div>
 								<input type="text" class="form-control" id="settings-color-palette" placeholder="#2196F3, #F44336, #FFC107, #4CAF50, #9C27B0">
+
+								<div class="color-palette-preview-div"></div>
 							</div>
 						</div>
 					</div>
@@ -109,71 +113,71 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm wf-viz wf-viz-included" id="wf-1-1">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-1-1">
 							<div class="wf-viz-desc"><div>Single Value</div></div>
 							<div class="wf-viz-title"><img src="static/img/single.png"></div>
 						</div>
-						<div class="col-sm wf-viz wf-viz-included" id="wf-1-2">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-1-2">
 							<div class="wf-viz-desc"><div>Single Value</div></div>
 							<div class="wf-viz-title"><img src="static/img/single.png"></div>
 						</div>
-						<div class="col-sm wf-viz wf-viz-included" id="wf-1-3">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-1-3">
 							<div class="wf-viz-desc"><div>Single Value</div></div>
 							<div class="wf-viz-title"><img src="static/img/single.png"></div>
 						</div>
-						<div class="col-sm wf-viz wf-viz-included" id="wf-1-4">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-1-4">
 							<div class="wf-viz-desc"><div>Single Value</div></div>
 							<div class="wf-viz-title"><img src="static/img/single.png"></div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm wf-viz wf-viz-included" id="wf-2-1">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-2-1">
 							<div class="wf-viz-desc"><div>Bar Chart</div></div>
 							<div class="wf-viz-title"><img src="static/img/bar.png"></div>
 						</div>
-						<div class="col-sm wf-viz wf-viz-included" id="wf-2-2">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-2-2">
 							<div class="wf-viz-desc"><div>Map Chart</div></div>
 							<div class="wf-viz-title"><img src="static/img/map.png"></div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm wf-viz wf-viz-included" id="wf-3-1">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-3-1">
 							<div class="wf-viz-desc"><div>Area Chart</div></div>
 							<div class="wf-viz-title"><img src="static/img/area.png"></div>
 						</div>
-						<div class="col-sm wf-viz wf-viz-included" id="wf-3-2">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-3-2">
 							<div class="wf-viz-desc"><div>Line Chart</div></div>
 							<div class="wf-viz-title"><img src="static/img/line.png"></div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm wf-viz wf-viz-included" id="wf-4-1">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-4-1">
 							<div class="wf-viz-desc"><div>Line Chart</div></div>
 							<div class="wf-viz-title"><img src="static/img/line.png"></div>
 						</div>
-						<div class="col-sm wf-viz wf-viz-included" id="wf-4-2">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-4-2">
 							<div class="wf-viz-desc"><div>Bar Chart</div></div>
 							<div class="wf-viz-title"><img src="static/img/bar.png"></div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm wf-viz wf-viz-included" id="wf-5-1">
+						<div class="col-sm wf-viz wf-viz-included" role=button id="wf-5-1">
 							<div class="wf-viz-desc"><div>Combo Chart</div></div>
 							<div class="wf-viz-title"><img src="static/img/multi.png"></div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm wf-viz wf-viz-omitted" id="wf-6-1">
+						<div class="col-sm wf-viz wf-viz-omitted" role=button id="wf-6-1">
 							<div class="wf-viz-desc"><div>Pie Charts</div></div>
 							<div class="wf-viz-title"><img src="static/img/pie3.png"></div>
 						</div>
-						<div class="col-sm wf-viz wf-viz-omitted" id="wf-6-2">
+						<div class="col-sm wf-viz wf-viz-omitted" role=button id="wf-6-2">
 							<div class="wf-viz-desc"><div>Table</div></div>
 							<div class="wf-viz-title"><img src="static/img/grid.png"></div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm wf-viz wf-viz-omitted" id="wf-7-1">
+						<div class="col-sm wf-viz wf-viz-omitted" role=button id="wf-7-1">
 							<div class="wf-viz-desc"><div>Area Chart</div></div>
 							<div class="wf-viz-title"><img src="static/img/area.png"></div>
 						</div>

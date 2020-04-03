@@ -1,5 +1,7 @@
 (function() {
 
+
+
     const lastFormValues = JSON.parse(localStorage.getItem('lastFormValues'));
     if(lastFormValues) {
         $("#settings-company-name").val(lastFormValues.company_title);
@@ -7,6 +9,11 @@
         $("#settings-color-palette").val(lastFormValues.color_palette);
         $("#settings-color-primary").val(lastFormValues.color_primary);
         $("#settings-color-secondary").val(lastFormValues.color_secondary);
+        $("#pick-color-scheme").append(`<button id='clear-ls' data-tooltip='Clear input fields'><img width=32 src="static/img/delete2.png"/></button>`);
+        $("#clear-ls").click(() => {
+            localStorage.removeItem("lastFormValues");
+            location.reload();
+        })
     }
 
 
@@ -35,7 +42,7 @@
     $("#wf-title").text($("#settings-company-name").val() || "Company Name");
     $("#wf-dash-title").css("color", `${firstSecondary}`);
     $("#wf-dash-title").text($("#settings-dashboard-name").val() || "Dashboard Name");
-    setColorsOnWireframe(["#2196F3", "#F44336", "#FFC107", "#4CAF50"]);
+    setColorsOnWireframe(["#dedede", "#cecece", "#bebebe"]);
 
 
 
@@ -61,6 +68,7 @@
         }
 
         const colors = palette_input.val().split(", ");
+        renderColorPalette();
         setColorsOnWireframe(colors);
     })
 
@@ -80,11 +88,7 @@
         $("#wf-dash-title").text($(this).val());
     });
 
-    $('#settings-color-primary').on("input", function() {
-        if (isColor($(this).val())) {
-            $("#wf-title").css("color", $(this).val());
-        }
-    });
+
     $('#settings-color-secondary').on("input", function() {
         if (isColor($(this).val())) {
             $("#wf-dash-title").css("color", $(this).val());
@@ -103,6 +107,7 @@
                 $("#settings-color-primary").css({
                     "border-bottom": `solid 5px ${color}`
                 });
+                $("#wf-title").css("color", color);
             }
         } catch (err) {}
     });
@@ -124,15 +129,7 @@
     });
 
     $('#settings-color-palette').on("input", function() {
-        if ($(this).val() === "") {
-            setColorsOnWireframe(["#2196F3", "#F44336", "#FFC107", "#4CAF50"]);
-        }
-        try {
-            const colors = $(this).val().split(",").map(item => item.trim());
-            if (colors.every(isColor)) {
-                setColorsOnWireframe(colors);
-            }
-        } catch (err) {}
+        renderColorPalette();
     });
 })()
 
@@ -229,6 +226,30 @@ function isColor(stringToTest) {
     image.style.color = "rgb(255, 255, 255)";
     image.style.color = stringToTest;
     return image.style.color !== "rgb(255, 255, 255)";
+}
+
+function renderColorPalette() {
+        $(".color-palette-preview-div").empty();
+
+        if ($('#settings-color-palette').val() === "") {
+            setColorsOnWireframe(["#2196F3", "#F44336", "#FFC107", "#4CAF50"]);
+            $(".color-palette-preview-div").append(`<div class="color-palette-preview" style="width: 100%; background-color: rgb(222, 222, 222);"></div>`)
+        }
+        try {
+            const colors = $('#settings-color-palette').val().split(",").map(item => item.trim());
+            if (colors.every(isColor)) {
+                setColorsOnWireframe(colors);
+                const colorPaletteLength = colors.length;
+                const colorWidthPercentage = (100 / colorPaletteLength).toFixed(0);
+                colors.forEach((c) => {
+                    $(".color-palette-preview-div").append(`
+                        <div class="color-palette-preview" style="width: ${colorWidthPercentage}%; background-color: ${c};"></div>`)
+                });
+                $(":root").css({
+                    "--included-color": colors[0]
+                });
+            }
+        } catch (err) {}
 }
 
 function setColorsOnWireframe(colors) {
